@@ -53,8 +53,26 @@ robot-dance, it was absolutely awesome, these little robots really
 look humans, and I can only imagine how hard it must be to program
 a synchronized choreograph with such natural movements.
 
-.. special thanks to the foundation
 Saturday
 
 Sprints
 =======
+
+This was my first sprint session and I'm very glad I did it.  After
+Sunday night I thought that only a few people would have actually
+remained, I was quite wrong and on Monday apparently more than 700
+people were still in the hotel coding like crazy.
+
+I first joined the python-dev group and thanks to Martin Löwis I now
+have a very work flow to contribute, with my own clone of the CPython
+sources on bitbucket.
+
+Then I joined Barry Warsaw and the GNU Mailman team, and after one day
+I already had a couple of branches merged into trunk.
+
+
+Conclusion
+==========
+
+.. special thanks to the foundation
+
