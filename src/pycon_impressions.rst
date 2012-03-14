@@ -10,6 +10,9 @@ After an amazing week I'm sadly going back to the UK.
 
 After two PyCon Italy and one Europycon last year this time I decided that I really wanted to come to Pycon Us, and I'm very glad I did.
 
+Trip
+====
+
 Coming from Bristol has been an exhausting trip, with the 3-4 hours
 delay of the airplane in London in took me exactly 24 hours from the
 time I left my house to the time I got to the hotel.
@@ -20,6 +23,9 @@ but the first and most impressive thing is definitively the sizes.
 Everything is bigger there, roads, buildings and cars, Santa Clara
 seems to be designed for giants or for cars, definitively not for
 human beings without wheels.
+
+Thurdsday
+=========
 
 So Thursday I did my first and only tutorial, still slightly KO from
 the jet-lag and the long trip.  It started well but it became quite
@@ -38,6 +44,9 @@ attending.
 With a clear and simply API that abstracts the complicated bits it
 would much easier to actually get something nice done during the
 tutorial.
+
+Friday
+======
 
 Friday it was the great day, and we started off with an amazing
 robot-dance, it was absolutely awesome, these little robots really
