@@ -39,4 +39,9 @@ With a clear and simply API that abstracts the complicated bits it
 would much easier to actually get something nice done during the
 tutorial.
 
+Friday it was the great day, and we started off with an amazing
+robot-dance, it was absolutely awesome, these little robots really
+look humans, and I can only imagine how hard it must be to program
+a synchronized choreograph with such natural movements.
+
 .. special thanks to the foundation
