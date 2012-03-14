@@ -21,6 +21,22 @@ Everything is bigger there, roads, buildings and cars, Santa Clara
 seems to be designed for giants or for cars, definitively not for
 human beings without wheels.
 
+So Thursday I did my first and only tutorial, still slightly KO from
+the jet-lag and the long trip.  It started well but it became quite
+boring in the end, and there wasn't any hands-on session.
 
+Frankly I don't see the point of a tutorial composed *only* of slides
+and demos which I can't even possibly reproduce.  I understand that
+it's hard to set up and to get something useful done it's not easy,
+but it's really not fulfilling to watch someone else doing a demo
+without even understanding what he's doing.
+
+One possible solution would be to prepare all the boiler-plate code
+before, and make it available (even before the tutorial) to the people
+attending.
+
+With a clear and simply API that abstracts the complicated bits it
+would much easier to actually get something nice done during the
+tutorial.
 
 .. special thanks to the foundation
