@@ -53,4 +53,3 @@ github: $(OUTPUTDIR)/index.html
 	git push origin gh-pages
 
 .PHONY: html help clean ftp_upload ssh_upload dropbox_upload github
-    
