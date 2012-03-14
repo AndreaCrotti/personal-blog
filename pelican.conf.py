@@ -5,7 +5,7 @@ AUTHOR = u"Andrea Crotti"
 SITENAME = u"YOL"
 SITEURL = '/'
 
-TIMEZONE = 'Europe/Paris'
+TIMEZONE = 'Europe/London'
 
 DEFAULT_LANG='english'
 
@@ -15,7 +15,7 @@ LINKS =  (
     ('Python.org', 'http://python.org'),
     ('Jinja2', 'http://jinja.pocoo.org'),
     ('You can modify those links in your config file', '#')
-         )
+)
 
 # Social widget
 SOCIAL = (
@@ -23,6 +23,3 @@ SOCIAL = (
          )
 
 DEFAULT_PAGINATION = 10
-
-
-    
