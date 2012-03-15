@@ -41,9 +41,10 @@ One possible solution would be to prepare all the boiler-plate code
 before, and make it available (even before the tutorial) to the people
 attending.
 
-With a clear and simply API that abstracts the complicated bits it
-would much easier to actually get something nice done during the
-tutorial.
+With a clear set of prepared tools and modules that abstracts the
+boring parts it would much easier to actually get something nice done
+during the tutorial.
+
 
 Conference
 ==========
