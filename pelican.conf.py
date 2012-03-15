@@ -7,7 +7,7 @@ SITEURL = '/'
 
 TIMEZONE = 'Europe/London'
 
-DEFAULT_LANG='english'
+DEFAULT_LANG='English'
 
 # Blogroll
 LINKS =  (
