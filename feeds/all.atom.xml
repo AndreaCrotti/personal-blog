@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>YOL</title><link href="/" rel="alternate"></link><link href="//feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2012-03-15T00:01:30+00:00</updated><entry><title>CRYPTED</title><link href="//crypted.html" rel="alternate"></link><updated>2012-03-15T00:01:30+00:00</updated><author><name>Andrea Crotti</name></author><id>//crypted.html</id><summary type="html"></summary></entry><entry><title>Thoughts from PyCon US</title><link href="//thoughts-from-pycon-us.html" rel="alternate"></link><updated>2012-03-15T00:01:07+00:00</updated><author><name>Andrea Crotti</name></author><id>//thoughts-from-pycon-us.html</id><summary type="html">&lt;!-- roads --&gt;
+&lt;!-- links --&gt;
+&lt;!-- robots --&gt;
+&lt;p&gt;After an amazing week I'm sadly going back to the UK.&lt;/p&gt;
+&lt;p&gt;After two PyCon Italy and one Europycon last year this time I decided that I really wanted to come to Pycon Us, and I'm very glad I did.&lt;/p&gt;
+&lt;div class="section" id="trip"&gt;
+&lt;h2&gt;Trip&lt;/h2&gt;
+&lt;p&gt;Coming from Bristol has been an exhausting trip, with the 3-4 hours
+delay of the airplane in London in took me exactly 24 hours from the
+time I left my house to the time I got to the hotel.&lt;/p&gt;
+&lt;p&gt;I had only some vague ideas about what the silicon valley really is,
+but the first and most impressive thing is definitively the sizes.&lt;/p&gt;
+&lt;p&gt;Everything is bigger there, roads, buildings and cars, Santa Clara
+seems to be designed for giants or for cars, definitively not for
+human beings without wheels.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="tutorials"&gt;
+&lt;h2&gt;Tutorials&lt;/h2&gt;
+&lt;p&gt;So Thursday I did my first and only tutorial, still slightly KO from
+the jet-lag and the long trip.  It started well but it became quite
+boring in the end, and there wasn't any hands-on session.&lt;/p&gt;
+&lt;p&gt;Frankly I don't see the point of a tutorial composed &lt;em&gt;only&lt;/em&gt; of slides
+and demos which I can't even possibly reproduce.  I understand that
+it's hard to set up and to get something useful done it's not easy,
+but it's really not fulfilling to watch someone else doing a demo
+without even understanding what he's doing.&lt;/p&gt;
+&lt;p&gt;One possible solution would be to prepare all the boiler-plate code
+before, and make it available (even before the tutorial) to the people
+attending.&lt;/p&gt;
+&lt;p&gt;With a clear set of prepared tools and modules that abstracts the
+boring parts it would much easier to actually get something nice done
+during the tutorial.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="conference"&gt;
+&lt;h2&gt;Conference&lt;/h2&gt;
+&lt;p&gt;Friday it was the great day, and we started off with an amazing
+robot-dance, it was absolutely awesome, these little robots really
+look humans, and I can only imagine how hard it must be to program
+a synchronized choreograph with such natural movements.&lt;/p&gt;
+&lt;p&gt;Saturday&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="sprints"&gt;
+&lt;h2&gt;Sprints&lt;/h2&gt;
+&lt;p&gt;This was my first sprint session and I'm very glad I did it.  After
+Sunday night I thought that only a few people would have actually
+remained, I was quite wrong and on Monday apparently more than 700
+people were still in the hotel coding like crazy.&lt;/p&gt;
+&lt;p&gt;I first joined the python-dev group and thanks to Martin Löwis I now
+have a very work flow to contribute, with my own clone of the CPython
+sources on bitbucket.&lt;/p&gt;
+&lt;p&gt;Then I joined Barry Warsaw and the GNU Mailman team, and after one day
+I already had a couple of branches merged into trunk.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="conclusion"&gt;
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+&lt;!-- special thanks to the foundation --&gt;
+&lt;/div&gt;
+</summary></entry><entry><title>emacs_grep</title><link href="//emacs_grep.html" rel="alternate"></link><updated>2012-03-14T20:08:16+00:00</updated><author><name>Andrea Crotti</name></author><id>//emacs_grep.html</id><summary type="html">&lt;!-- TODO: find out what is the precise syntax for the sources --&gt;
+&lt;p&gt;In this post I will try to explain a simple elisp function, to see how little we need to create something already very useful with Emacs.&lt;/p&gt;
+&lt;p&gt;This function&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+(defun ca-find-ocaml-declaration (&amp;amp;optional value)
+  &amp;quot;Show the ocaml declarations for the given function&amp;quot;
+  (interactive)
+  (let*
+      ((to_lookup
+        (or value (read-from-minibuffer &amp;quot;symbol:&amp;quot; (thing-at-point 'symbol))))
+       (grep_cmd
+        (format &amp;quot;grep -nH -e &amp;quot;val %s&amp;quot; %s/&lt;a href="#id1"&gt;&lt;span class="problematic" id="id2"&gt;*&lt;/span&gt;&lt;/a&gt;.mli&amp;quot; to_lookup typerex-library-path)))
+
+    (grep grep_cmd)))
+&lt;/pre&gt;
+&lt;div class="system-message" id="id1"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;./src/emacs_grep.rst&lt;/tt&gt;, line 11); &lt;em&gt;&lt;a href="#id2"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Inline emphasis start-string without end-string.&lt;/div&gt;
+</summary></entry></feed>
