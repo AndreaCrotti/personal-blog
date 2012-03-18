@@ -1,4 +1,4 @@
-emacs_grep
+Emacs_Grep
 ##########
 
 :status: draft
