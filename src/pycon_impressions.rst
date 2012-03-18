@@ -94,3 +94,5 @@ Interesting projects
 .. _d3: http://mbostock.github.com/d3/
 .. _pycscope: https://github.com/portante/pycscope
 .. _pyvideo: http://pyvideo.org/
+.. _pyrasite: https://github.com/lmacken/pyrasite
+.. _`pyrasite gui`: https://github.com/lmacken/pyrasite-gui
