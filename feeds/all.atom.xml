@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>YOL</title><link href="/" rel="alternate"></link><link href="//feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2012-03-18T01:45:07+00:00</updated><entry><title>emacs_grep</title><link href="//emacs_grep.html" rel="alternate"></link><updated>2012-03-18T01:45:07+00:00</updated><author><name>Andrea Crotti</name></author><id>//emacs_grep.html</id><summary type="html">&lt;!-- TODO: find out what is the precise syntax for the sources --&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>YOL</title><link href="/" rel="alternate"></link><link href="//feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2012-03-18T01:49:13+00:00</updated><entry><title>emacs_grep</title><link href="//emacs_grep.html" rel="alternate"></link><updated>2012-03-18T01:49:13+00:00</updated><author><name>Andrea Crotti</name></author><id>//emacs_grep.html</id><summary type="html">&lt;!-- TODO: find out what is the precise syntax for the sources --&gt;
 &lt;p&gt;In this post I will try to explain a simple elisp function, to see how little we need to create something already very useful with Emacs.&lt;/p&gt;
 &lt;p&gt;This function&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
@@ -17,14 +17,6 @@
 &lt;div class="system-message" id="id1"&gt;
 &lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;./src/emacs_grep.rst&lt;/tt&gt;, line 11); &lt;em&gt;&lt;a href="#id2"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 Inline emphasis start-string without end-string.&lt;/div&gt;
-&lt;table class="docutils field-list" frame="void" rules="none"&gt;
-&lt;col class="field-name" /&gt;
-&lt;col class="field-body" /&gt;
-&lt;tbody valign="top"&gt;
-&lt;tr class="field"&gt;&lt;th class="field-name"&gt;status:&lt;/th&gt;&lt;td class="field-body"&gt;draft&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
 </summary></entry><entry><title>Thoughts from PyCon US</title><link href="//thoughts-from-pycon-us.html" rel="alternate"></link><updated>2012-03-15T00:01:07+00:00</updated><author><name>Andrea Crotti</name></author><id>//thoughts-from-pycon-us.html</id><summary type="html">&lt;!-- roads --&gt;
 &lt;!-- links --&gt;
 &lt;!-- robots --&gt;
