@@ -96,3 +96,4 @@ Interesting projects
 .. _pyvideo: http://pyvideo.org/
 .. _pyrasite: https://github.com/lmacken/pyrasite
 .. _`pyrasite gui`: https://github.com/lmacken/pyrasite-gui
+.. _numba: https://github.com/ContinuumIO/numba
