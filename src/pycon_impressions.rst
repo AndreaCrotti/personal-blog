@@ -1,6 +1,5 @@
-========================
- Thoughts from PyCon US
-========================
+Thoughts from PyCon US
+######################
 
 .. roads
 .. links
