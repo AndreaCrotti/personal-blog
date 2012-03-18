@@ -41,10 +41,10 @@
         
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href=".././crypted.html">CRYPTED</a></h1> 
+                    <h1 class="entry-title"><a href=".././emacs_grep.html">emacs_grep</a></h1> 
                     <footer class="post-info">
-        <abbr class="published" title="2012-03-15T00:01:30.707413">
-                Thu 15 March 2012
+        <abbr class="published" title="2012-03-18T01:45:07.122211">
+                Sun 18 March 2012
         </abbr>
 
         
@@ -56,7 +56,33 @@
 
 
 
-</footer><!-- /.post-info -->
+</footer><!-- /.post-info --><!-- TODO: find out what is the precise syntax for the sources -->
+<p>In this post I will try to explain a simple elisp function, to see how little we need to create something already very useful with Emacs.</p>
+<p>This function</p>
+<pre class="literal-block">
+(defun ca-find-ocaml-declaration (&amp;optional value)
+  &quot;Show the ocaml declarations for the given function&quot;
+  (interactive)
+  (let*
+      ((to_lookup
+        (or value (read-from-minibuffer &quot;symbol:&quot; (thing-at-point 'symbol))))
+       (grep_cmd
+        (format &quot;grep -nH -e &quot;val %s&quot; %s/<a href="#id1"><span class="problematic" id="id2">*</span></a>.mli&quot; to_lookup typerex-library-path)))
+
+    (grep grep_cmd)))
+</pre>
+<div class="system-message" id="id1">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">./src/emacs_grep.rst</tt>, line 11); <em><a href="#id2">backlink</a></em></p>
+Inline emphasis start-string without end-string.</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">status:</th><td class="field-body">draft</td>
+</tr>
+</tbody>
+</table>
+
                 </article>
                 
             </aside><!-- /#featured -->
@@ -67,49 +93,6 @@
                         <ol id="posts-list" class="hfeed">
             
         
-        
-        
-        
-
-        
-         
-            
-            <li><article class="hentry">    
-                <header>
-                        <h1><a href=".././emacs_grep.html" rel="bookmark" title="Permalink to emacs_grep">emacs_grep</a></h1>
-                </header>
-                
-                <div class="entry-content">
-                <footer class="post-info">
-        <abbr class="published" title="2012-03-14T20:08:16.483066">
-                Wed 14 March 2012
-        </abbr>
-
-        
-        <address class="vcard author">
-                By <a class="url fn" href=".././author/andrea-crotti.html">Andrea Crotti</a>
-        </address>
-        
-<p>In <a href=".././category/src.html">src</a>. </p>
-
-
-
-</footer><!-- /.post-info -->
-                <!-- TODO: find out what is the precise syntax for the sources -->
-<p>In this post I will try to explain a simple elisp function, to see how little we need to create something already very useful with Emacs.</p>
-<p>This function</p>
-<pre class="literal-block">
-(defun ca-find-ocaml-declaration (&amp;optional value)
-  &quot;Show the ocaml declarations for the given function&quot;
-  (interactive)
-  (let*
-      ((to_lookup
-        (or value (read-from-minibuffer &quot;symbol:&quot; (thing-at-point 'symbol))))
-       (grep_cmd ...</pre></!-->
-                <a class="readmore" href=".././emacs_grep.html">read more</a>
-                
-                </div><!-- /.entry-content -->
-            </article></li>
         
         
         
