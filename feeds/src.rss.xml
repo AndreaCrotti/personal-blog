@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>My personal blog</title><link href="http://andreacrotti.github.com/personal-blog/" rel="alternate"></link><link href="http://andreacrotti.github.com/personal-blog//feeds/src.atom.xml" rel="self"></link><id>http://andreacrotti.github.com/personal-blog/</id><updated>2012-03-18T13:49:23+00:00</updated><entry><title>Thoughts from PyCon US</title><link href="http://andreacrotti.github.com/personal-blog//thoughts-from-pycon-us.html" rel="alternate"></link><updated>2012-03-18T13:49:23+00:00</updated><author><name>Andrea Crotti</name></author><id>http://andreacrotti.github.com/personal-blog//thoughts-from-pycon-us.html</id><summary type="html">&lt;!-- roads --&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>My personal blog</title><link>http://andreacrotti.github.com/personal-blog/</link><description></description><atom:link href="http://andreacrotti.github.com/personal-blog//feeds/src.rss.xml" rel="self"></atom:link><lastBuildDate>Sun, 18 Mar 2012 13:49:23 +0000</lastBuildDate><item><title>Thoughts from PyCon US</title><link>http://andreacrotti.github.com/personal-blog//thoughts-from-pycon-us.html</link><description>&lt;!-- roads --&gt;
 &lt;!-- links --&gt;
 &lt;!-- robots --&gt;
 &lt;p&gt;After an amazing week I'm sadly going back to the UK.&lt;/p&gt;
@@ -56,4 +56,4 @@ I already had a couple of branches merged into trunk.&lt;/p&gt;
 &lt;h2&gt;Conclusion&lt;/h2&gt;
 &lt;!-- special thanks to the foundation --&gt;
 &lt;/div&gt;
-</summary></entry></feed>
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Andrea Crotti</dc:creator><pubDate>Sun, 18 Mar 2012 13:49:23 +0000</pubDate><guid>http://andreacrotti.github.com/personal-blog//thoughts-from-pycon-us.html</guid></item></channel></rss>

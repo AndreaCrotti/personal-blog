@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>YOL</title><link href="/" rel="alternate"></link><link href="//feeds/misc.atom.xml" rel="self"></link><id>/</id><updated>2012-03-14T23:55:43+00:00</updated><entry><title>Thoughts from PyCon US</title><link href="//thoughts-from-pycon-us.html" rel="alternate"></link><updated>2012-03-14T23:55:43+00:00</updated><author><name>Andrea Crotti</name></author><id>//thoughts-from-pycon-us.html</id><summary type="html">&lt;!-- roads --&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>My personal blog</title><link>http://andreacrotti.github.com/personal-blog/</link><description></description><atom:link href="http://andreacrotti.github.com/personal-blog//feeds/all.rss.xml" rel="self"></atom:link><lastBuildDate>Sun, 18 Mar 2012 13:49:23 +0000</lastBuildDate><item><title>Thoughts from PyCon US</title><link>http://andreacrotti.github.com/personal-blog//thoughts-from-pycon-us.html</link><description>&lt;!-- roads --&gt;
 &lt;!-- links --&gt;
 &lt;!-- robots --&gt;
 &lt;p&gt;After an amazing week I'm sadly going back to the UK.&lt;/p&gt;
@@ -28,9 +28,9 @@ without even understanding what he's doing.&lt;/p&gt;
 &lt;p&gt;One possible solution would be to prepare all the boiler-plate code
 before, and make it available (even before the tutorial) to the people
 attending.&lt;/p&gt;
-&lt;p&gt;With a clear and simply API that abstracts the complicated bits it
-would much easier to actually get something nice done during the
-tutorial.&lt;/p&gt;
+&lt;p&gt;With a clear set of prepared tools and modules that abstracts the
+boring parts it would much easier to actually get something nice done
+during the tutorial.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="conference"&gt;
 &lt;h2&gt;Conference&lt;/h2&gt;
@@ -56,22 +56,4 @@ I already had a couple of branches merged into trunk.&lt;/p&gt;
 &lt;h2&gt;Conclusion&lt;/h2&gt;
 &lt;!-- special thanks to the foundation --&gt;
 &lt;/div&gt;
-</summary></entry><entry><title>emacs_grep</title><link href="//emacs_grep.html" rel="alternate"></link><updated>2012-03-14T20:08:16+00:00</updated><author><name>Andrea Crotti</name></author><id>//emacs_grep.html</id><summary type="html">&lt;!-- TODO: find out what is the precise syntax for the sources --&gt;
-&lt;p&gt;In this post I will try to explain a simple elisp function, to see how little we need to create something already very useful with Emacs.&lt;/p&gt;
-&lt;p&gt;This function&lt;/p&gt;
-&lt;pre class="literal-block"&gt;
-(defun ca-find-ocaml-declaration (&amp;amp;optional value)
-  &amp;quot;Show the ocaml declarations for the given function&amp;quot;
-  (interactive)
-  (let*
-      ((to_lookup
-        (or value (read-from-minibuffer &amp;quot;symbol:&amp;quot; (thing-at-point 'symbol))))
-       (grep_cmd
-        (format &amp;quot;grep -nH -e &amp;quot;val %s&amp;quot; %s/&lt;a href="#id1"&gt;&lt;span class="problematic" id="id2"&gt;*&lt;/span&gt;&lt;/a&gt;.mli&amp;quot; to_lookup typerex-library-path)))
-
-    (grep grep_cmd)))
-&lt;/pre&gt;
-&lt;div class="system-message" id="id1"&gt;
-&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/home/andrea/website/src//emacs_grep.rst&lt;/tt&gt;, line 11); &lt;em&gt;&lt;a href="#id2"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-Inline emphasis start-string without end-string.&lt;/div&gt;
-</summary></entry><entry><title>crypted</title><link href="//crypted.html" rel="alternate"></link><updated>2012-03-14T20:00:33+00:00</updated><author><name>Andrea Crotti</name></author><id>//crypted.html</id><summary type="html"></summary></entry></feed>
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Andrea Crotti</dc:creator><pubDate>Sun, 18 Mar 2012 13:49:23 +0000</pubDate><guid>http://andreacrotti.github.com/personal-blog//thoughts-from-pycon-us.html</guid></item></channel></rss>

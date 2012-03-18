@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>YOL</title><link href="/" rel="alternate"></link><link href="//feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2012-03-18T13:49:23+00:00</updated><entry><title>Thoughts from PyCon US</title><link href="//thoughts-from-pycon-us.html" rel="alternate"></link><updated>2012-03-18T13:49:23+00:00</updated><author><name>Andrea Crotti</name></author><id>//thoughts-from-pycon-us.html</id><summary type="html">&lt;!-- roads --&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>My personal blog</title><link href="http://andreacrotti.github.com/personal-blog/" rel="alternate"></link><link href="http://andreacrotti.github.com/personal-blog//feeds/all.atom.xml" rel="self"></link><id>http://andreacrotti.github.com/personal-blog/</id><updated>2012-03-18T13:49:23+00:00</updated><entry><title>Thoughts from PyCon US</title><link href="http://andreacrotti.github.com/personal-blog//thoughts-from-pycon-us.html" rel="alternate"></link><updated>2012-03-18T13:49:23+00:00</updated><author><name>Andrea Crotti</name></author><id>http://andreacrotti.github.com/personal-blog//thoughts-from-pycon-us.html</id><summary type="html">&lt;!-- roads --&gt;
 &lt;!-- links --&gt;
 &lt;!-- robots --&gt;
 &lt;p&gt;After an amazing week I'm sadly going back to the UK.&lt;/p&gt;
