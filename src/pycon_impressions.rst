@@ -87,8 +87,8 @@ I just noticed that almost every
 Interesting projects
 ====================
 
-.. _enaml: git://github.com/enthought/enaml.git
-.. _parsimonious: git://github.com/erikrose/parsimonious.git
+.. _enaml: https://github.com/enthought/enaml
+.. _parsimonious: https://github.com/erikrose/parsimonious
 .. _configglue: https://launchpad.net/configglue
 .. _asoa: http://www.aosabook.org/en/index.html
 .. _d3: http://mbostock.github.com/d3/
