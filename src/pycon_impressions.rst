@@ -21,7 +21,7 @@ time I left my house to the time I got to the hotel in Santa Clara.
 I had only some vague ideas about what the silicon valley really is,
 but the first and most impressive thing is definitively the sizes.
 
-Everything is bigger there: roads, buildings, cars 
+
 
 Tutorials
 =========
@@ -76,3 +76,21 @@ Conclusion
 
 .. special thanks to the foundation
 
+Curious things
+==============
+
+I just noticed that almost every 
+
+.. _`California city names`: http://www.greenspun.com/bboard/q-and-a-fetch-msg.tcl?msg_id=0004BJ
+
+
+Interesting projects
+====================
+
+.. _enaml: git://github.com/enthought/enaml.git
+.. _parsimonious: git://github.com/erikrose/parsimonious.git
+.. _configglue: https://launchpad.net/configglue
+.. _asoa: http://www.aosabook.org/en/index.html
+.. _d3: http://mbostock.github.com/d3/
+.. _pycscope: https://github.com/portante/pycscope
+.. _pyvideo: http://pyvideo.org/
