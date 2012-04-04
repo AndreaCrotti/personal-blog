@@ -32,9 +32,28 @@ text-editor to get some work done.
 Hard to extend or customise
 ===========================
 
+As developers we have an incredible advantage over other
+professionals, we are probably the only one that can create the tools
+we are using for our job.
+
+A formula1 pilot doesn't build its car, a carpenter doesn't fabricate
+its hammers and so on.  Even more extremely, we can create our own
+tools in the same language that we use to do the real job, imagine if
+it would be possible to build a hammer just with *another hammer*.
 
 
 When they break you're screwed
 ==============================
 
 .. _linux_as_ide: http://blog.sanctum.geek.nz/unix-as-ide-introduction/
+
+
+Complex and not portable configuration
+======================================
+
+For my experience it's from very annoying to almost impossible to try
+to port the same configuration on different machines.  IDEs often
+store all the settings in some thousands sparse xml files, which make
+them extremely hard to locate and to understand.
+
+
