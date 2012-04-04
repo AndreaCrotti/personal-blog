@@ -41,6 +41,10 @@ its hammers and so on.  Even more extremely, we can create our own
 tools in the same language that we use to do the real job, imagine if
 it would be possible to build a hammer just with *another hammer*.
 
+This opportunity gives the tremendous power to customise every tool to
+our specific needs and taste.  The problem with IDEs in this case is
+that they are extremely hard to customise.
+
 
 When they break you're screwed
 ==============================
