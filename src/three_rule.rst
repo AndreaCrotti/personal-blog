@@ -1,6 +1,8 @@
 Rule of divisor by three
 ########################
 
+.. TODO: find out how to use math formulas
+
 :status: draft
 
 Maybe many of you already know this simple trick to check if a number
@@ -18,5 +20,10 @@ There are many similar tricks to check other divisors, but to me it's
 more interesting to know *why* it works, and *how* can I actually
 prove it.
 
-Looks like it's easier than I thought.
+Looks like it's easier than I thought.  First observe that every
+natural number can be written as:
 
+n = 10^n*x_n + 10^(n-1)x_(n-1) + .. + 10x1 + x0
+
+this representation makes it easy to compute the sum of the digits,
+which is simply the sum of all x_i for i 0 -> n.
