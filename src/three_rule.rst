@@ -14,4 +14,9 @@ For example:
 - 57 -> 5 + 7 = 12, 12 is divisible by 3 thus 57 is divisible by 3
 - 23 -> 2 + 4 = 5, 5 is not divisible by 3 thus 23 is not divisible by 3
 
+There are many similar tricks to check other divisors, but to me it's
+more interesting to know *why* it works, and *how* can I actually
+prove it.
+
+Looks like it's easier than I thought.
 
