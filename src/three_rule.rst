@@ -27,3 +27,13 @@ n = 10^n*x_n + 10^(n-1)x_(n-1) + .. + 10x1 + x0
 
 this representation makes it easy to compute the sum of the digits,
 which is simply the sum of all x_i for i 0 -> n.
+
+So proving for n = 0 is trivial, because 3, 6 and 9 are divisible by 3.
+
+Suppose the number has 2 digits, so can be written as
+
+n = 10a + b
+
+saying that the sum of the digits is divisible by three means that
+a + b % 3 = 0
+
