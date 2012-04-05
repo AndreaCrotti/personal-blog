@@ -6,6 +6,8 @@ Why IDE sucks
 This article is about productivity, as a conclusion of many years of
 tinkering and trying every possible thing.
 
+Here below a list of arguments that make every IDE suck:
+
 
 Designed with a specific language in mind
 =========================================
@@ -14,6 +16,9 @@ Every IDE is designed with a particular language in mind.  This is not
 in general a bad thing, but unless you plan to use *one* and *only
 one* programming language, you will experience that the quality of the
 plugins for other languages will not be the same.
+
+In plus it takes years before reaching a plugin with a decent quality
+for a new language, which leads to the.
 
 
 Slow and extremely memory hungry
@@ -61,3 +66,16 @@ store all the settings in some thousands sparse xml files, which make
 them extremely hard to locate and to understand.
 
 
+Conclusion
+==========
+
+
+If you are like me, and you always want to know what is going on your
+machine.
+
+I'm not saying that IDEs should never been used, on the contrary they
+can be very useful.  To me for example one case where I would prefer
+an IDE is if I have to implement something quickly in a complex
+technology that I don't particularly care about (Java for example).
+
+In that case trying to set up Emacs to get a good configuration
