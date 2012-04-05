@@ -37,3 +37,14 @@ n = 10a + b
 saying that the sum of the digits is divisible by three means that
 a + b % 3 = 0
 
+which can be rewritten as:
+
+a + b = 3k
+a = 3k - b
+
+n = 10(3k - b) + b
+= 30k - 10b + b
+= 30k - 9b
+= 3(10k - 3b)
+
+which is trivially divisible by 3.

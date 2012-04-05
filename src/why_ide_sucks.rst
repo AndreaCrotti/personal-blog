@@ -1,6 +1,8 @@
 Why IDE sucks
 #############
 
+.. TODO: which IDE can be added?
+
 :status: draft
 
 This article is about productivity, as a conclusion of many years of
