@@ -50,6 +50,11 @@ This opportunity gives the tremendous power to customise every tool to
 our specific needs and taste.  The problem with IDEs in this case is
 that they are extremely hard to customise.
 
+.. TODO: check the link
+.. _`emacs configuration`: http://github.com/AndreaCrotti/Emacs-configuration.git
+
+.. TODO: add a simple example about customisation in emacs
+
 
 When they break you're screwed
 ==============================
