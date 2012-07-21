@@ -34,3 +34,4 @@ Finally I found a solution which I think is very powerful and simple to implemen
 
 
 All this is done using Python white magic.
+(use *vars* to read from the variable)
