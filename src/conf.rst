@@ -17,12 +17,15 @@ Finally I found a solution which I think is very powerful and simple to implemen
 
 - a simple ini file, for example:
    
+.. code:: ini
+
    [database]
    user = user
    host = dbserver
    port = 1000
 
-   which can extend the default configuration or override some values.
+
+Which can extend the default configuration or override some values.
 
 - a way to pass from the command line extra settings, passing for example
   
@@ -30,14 +33,12 @@ Finally I found a solution which I think is very powerful and simple to implemen
 
    python myscript.py -D database.user:newuser
 
-Will override the settings but is not allowed to create new settings (both to simplify the implementation and to avoid simple typos)
+Will override the settings but is not allowed to create new settings (both to simplify the implementation and to avoid simple typos).
 
 
-All this is done using Python white magic.
-(use *vars* to read from the variable)
+All this is very simple and can be implemented with some Python white magic.
 
-
-First of all we create a singleton object that will store the configuration.
+The final parsed configuration is just a dictionary and can is loaded only once, and accessed from every module via *get_conf*.
 
 .. code:: python
 
@@ -47,9 +48,77 @@ First of all we create a singleton object that will store the configuration.
         """Return the global configuration, loading it first if necessary
         """
         if GLOBAL_CONF is None:
-            load_conf()
+            global GLOBAL_CONF
+            GLOBAL_CONF = load_conf()
     
         return GLOBAL_CONF
+
+
+And the load_conf function is very simple, it takes an optional ini file path and a dictionary with extra settings, and
+
+- parses the default python configuration to dictionary
+- creates a configuration object passing these default values
+- updates the configuration with the extra settings
+
+
+.. code:: python
+
+    def load_conf(conf_file=DEFAULT_INI_CONF, extra=None):
+        default_conf = module_to_dict(DEFAULT_CONF_MODULE)
+        conf = Conf(conf_file, default_conf)
+        if extra:
+            conf.update_from_vars(extra)
+
+        return conf
+
+
+The configuration object does
+
+- set the internal dictionary to the default values.
+- create a ConfigParser object to parse the given ini file.
+- iterates over the ConfigParser object writing on the internal dictionary with *_conf_to_dict*. In this implementation a configuration file is allowed to create sections and options which didn't exist, this might be made easily configurable. (For example suppose we want to enable type checking it would make sense to only allow options that are also in the global Python configuration.)
+
+.. code:: python
+
+    class Conf:
+        def __init__(self, conf_file, default=None):
+            self.conf_dict = default or {}
+            self.conf = ConfigParser()
+            self.conf.read(conf_file)
+            self._conf_to_dict()
+    
+        def _conf_to_dict(self):
+            for sec in self.conf.sections():
+                if sec not in self.conf_dict:
+                    self.conf_dict[sec] = {}
+    
+                for k, v in self.conf.items(sec):
+                    self.conf_dict[sec][k] = v
+    
+
+These two methods are just added for convenience, so that the configuration can be accessed in the same way as a dictionary and as a namespace:
+
+.. code:: python
+
+        def __getitem__(self, item):
+            return self.conf_dict[item]
+    
+        def __getattr__(self, attr):
+            return self.__getitem__(attr)
+
+
+These two methods instead are used to convert the configuration to and from a list of arguments, very useful to be able to override settings from the command line.
+
+    
+.. code:: python
+
+        def to_args(self):
+            return list(dict_to_args(self.conf_dict))
+    
+        def update_from_vars(self, varargs):
+            tmp_dic = args_to_dict(varargs, self.conf_dict)
+            self.conf_dict.update(tmp_dic)
+    
 
 
 .. code:: python
@@ -85,19 +154,3 @@ First of all we create a singleton object that will store the configuration.
             else:
                 yield ".".join(prefix + (k,)) + ":" + str(v)
 
-
-.. code:: python
-
-    def load_conf(conf_file=DEFAULT_INI_CONF, extra=None):
-        """Load the configuration, first reading the default configuration
-        and merging it with the given ini file
-        """
-        default_conf = module_to_dict(DEFAULT_CONF_MODULE)
-        conf = Conf(conf_file, default_conf)
-        if extra:
-            conf.update_from_vars(extra)
-    
-        # TODO: check for multiple configuration settings
-        global GLOBAL_CONF
-        GLOBAL_CONF = conf
-        return conf
