@@ -7,7 +7,8 @@ Finally I found a solution which I think is very powerful and simple to implemen
 
 - a default configuration file in a python module, which contains simply variables.
 
-.. parsed-literal::
+.. code:: python
+
    database = {
        'user': 'user',
        'host': 'dbserver',
@@ -25,10 +26,11 @@ Finally I found a solution which I think is very powerful and simple to implemen
 
 - a way to pass from the command line extra settings, passing for example
   
-.. parsed-literal::
+.. code:: bash
+
    python myscript.py -D database.user:newuser
 
-   will override the settings but is not allowed to create new settings (both to simplify the implementation and to avoid simple typos)
+Will override the settings but is not allowed to create new settings (both to simplify the implementation and to avoid simple typos)
 
 
 All this is done using Python white magic.
@@ -37,7 +39,8 @@ All this is done using Python white magic.
 
 First of all we create a singleton object that will store the configuration.
 
-.. parsed-literal::
+.. code:: python
+
     GLOBAL_CONF = None
 
     def get_conf():
@@ -49,7 +52,7 @@ First of all we create a singleton object that will store the configuration.
         return GLOBAL_CONF
 
 
-.. parsed-literal::
+.. code:: python
     
     def args_to_dict(var_args, current_dict):
         """Take a list of variable settings and construct a dictionary
@@ -69,7 +72,7 @@ First of all we create a singleton object that will store the configuration.
         return tmp
 
 
-.. parsed-literal::
+.. code:: python
 
     def dict_to_args(d, prefix=()):
         """Return a list of valid arguments that can be passed, in the form
@@ -83,7 +86,7 @@ First of all we create a singleton object that will store the configuration.
                 yield ".".join(prefix + (k,)) + ":" + str(v)
 
 
-.. parsed-literal::
+.. code:: python
 
     def load_conf(conf_file=DEFAULT_INI_CONF, extra=None):
         """Load the configuration, first reading the default configuration
