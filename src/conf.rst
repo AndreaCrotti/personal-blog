@@ -154,3 +154,35 @@ These two methods instead are used to convert the configuration to and from a li
             else:
                 yield ".".join(prefix + (k,)) + ":" + str(v)
 
+
+
+So putting everything together you could have in your main module an argparse parser that list all the possible configurations, and allows you to override some of the values:
+
+
+.. code:: python
+
+    def parse_arguments():
+        parser = argparse.ArgumentParser(description='Manage the tests')
+    
+        parser.add_argument('-D', '--extra_config',
+            nargs='+',
+            help='set extra variables')
+    
+        parser.add_argument('--list_keys',
+            action='store_true',
+            help='show the whole list of variables that can be set')
+        
+        return parser.parse_args()
+
+
+.. code:: python
+
+    def main():
+        ns = parse_arguments()
+        conf = load_conf(ns.config, ns.extra_config)
+    
+        if ns.list_keys:
+            print('\n'.join(conf.to_args()))
+
+
+Next step to improve this configuration schema is to add type checking, and possibly make it to an external library.
