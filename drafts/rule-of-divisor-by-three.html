@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>Thoughts from PyCon US</title>
+        <title>Rule of divisor by three</title>
         <meta charset="utf-8" />
         <link rel="stylesheet" href=".././theme/css/main.css" type="text/css" />
         
@@ -48,8 +48,8 @@
   <article>
     <header>
       <h1 class="entry-title">
-        <a href="thoughts-from-pycon-us.html" rel="bookmark"
-           title="Permalink to Thoughts from PyCon US">Thoughts from PyCon US</a></h1>
+        <a href="rule-of-divisor-by-three.html" rel="bookmark"
+           title="Permalink to Rule of divisor by three">Rule of divisor by three</a></h1>
       
     </header>
 
@@ -69,66 +69,37 @@
 
 
 </footer><!-- /.post-info -->
-      <!-- roads -->
-<!-- links -->
-<!-- robots -->
-<p>After two PyCon Italy and one Europycon last year this time I decided
-that I really wanted to come to Pycon Us, and I'm very glad I did.</p>
-<div class="section" id="trip">
-<h2>Trip</h2>
-<p>Coming from Bristol has been an exhausting trip, with the 3-4 hours
-delay of the airplane in London it took me exactly 24 hours from the
-time I left my house to the time I got to the hotel in Santa Clara.</p>
-<!-- I had only some vague ideas about what the silicon valley really is, -->
-<!-- but the first and most impressive thing is definitively the sizes. -->
-</div>
-<div class="section" id="tutorials">
-<h2>Tutorials</h2>
-<p>So Thursday I did my first and only tutorial, still slightly KO from
-the jet-lag and the long trip.  It started well but it became quite
-boring in the end, and there wasn't any hands-on session.</p>
-<p>I don't see the point of a tutorial composed <em>only</em> of slides and
-demos which I can't possibly reproduce.  I understand that it's hard
-to set up and to get something useful done in a short time, but it's
-really not fulfilling to watch someone else doing a demo without even
-understanding what he's doing.</p>
-<p>One possible solution would be to prepare all the boiler-plate code
-before, and make it available (even before the tutorial) to the people
-attending.</p>
-<p>With a clear set of prepared tools and modules that abstracts the
-boring parts it would much easier to actually get something nice done
-during the tutorial.</p>
-</div>
-<div class="section" id="conference">
-<h2>Conference</h2>
-<p>Friday was a great day, started off with an amazing robot-dance (with
-<a class="reference external" href="../static/nao_website">nao</a> robots), which was absolutely awesome. These little robots really
-look humans, and I can only imagine how hard it must be to program a
-synchronised choreograph with such natural movements.</p>
-</div>
-<div class="section" id="sprints">
-<h2>Sprints</h2>
-<p>This was my first sprint session and I'm very glad I did it.  After
-Sunday night I thought that only a few people would have actually
-remained, I was quite wrong and on Monday apparently more than 700
-people were still in the hotel coding like crazy.</p>
-<p>I first joined the python-dev group and thanks to Martin Löwis I now
-have a very work flow to contribute, with my own clone of the CPython
-sources on bitbucket.</p>
-<p>Then I joined Barry Warsaw and the GNU Mailman team, and after one day
-I already had a couple of branches merged into trunk.</p>
-</div>
-<div class="section" id="conclusion">
-<h2>Conclusion</h2>
-<!-- special thanks to the foundation -->
-</div>
-<div class="section" id="curious-things">
-<h2>Curious things</h2>
-<p>I just noticed that almost every</p>
-</div>
-<div class="section" id="interesting-projects">
-<h2>Interesting projects</h2>
-</div>
+      <!-- TODO: find out how to use math formulas -->
+<p>Maybe many of you already know this simple trick to check if a number
+is divisible by three.</p>
+<p>If summing up all the digits from a number sums up to a multiple of 3
+then the number is divisible by three.</p>
+<p>For example:</p>
+<ul class="simple">
+<li>57 -&gt; 5 + 7 = 12, 12 is divisible by 3 thus 57 is divisible by 3</li>
+<li>23 -&gt; 2 + 4 = 5, 5 is not divisible by 3 thus 23 is not divisible by 3</li>
+</ul>
+<p>There are many similar tricks to check other divisors, but to me it's
+more interesting to know <em>why</em> it works, and <em>how</em> can I actually
+prove it.</p>
+<p>Looks like it's easier than I thought.  First observe that every
+natural number can be written as:</p>
+<p>n = 10^n*x_n + 10^(n-1)x_(n-1) + .. + 10x1 + x0</p>
+<p>this representation makes it easy to compute the sum of the digits,
+which is simply the sum of all x_i for i 0 -&gt; n.</p>
+<p>So proving for n = 0 is trivial, because 3, 6 and 9 are divisible by 3.</p>
+<p>Suppose the number has 2 digits, so can be written as</p>
+<p>n = 10a + b</p>
+<p>saying that the sum of the digits is divisible by three means that
+a + b % 3 = 0</p>
+<p>which can be rewritten as:</p>
+<p>a + b = 3k
+a = 3k - b</p>
+<p>n = 10(3k - b) + b
+= 30k - 10b + b
+= 30k - 9b
+= 3(10k - 3b)</p>
+<p>which is trivially divisible by 3.</p>
 
     </div><!-- /.entry-content -->
     
@@ -136,7 +107,7 @@ I already had a couple of branches merged into trunk.</p>
       <h2>Comments !</h2>
       <div id="disqus_thread"></div>
       <script type="text/javascript">
-        var disqus_identifier = "thoughts-from-pycon-us.html";
+        var disqus_identifier = "rule-of-divisor-by-three.html";
         (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
         dsq.src = 'http://andreacrotti.disqus.com/embed.js';

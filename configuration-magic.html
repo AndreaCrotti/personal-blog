@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>My personal blog</title>
+        <title>Configuration magic</title>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="./theme/css/main.css" type="text/css" />
         
@@ -39,20 +39,22 @@
                 
                 
                 
-                    <li ><a href="./category/misc.html">misc</a></li>
+                    <li class="active"><a href="./category/misc.html">misc</a></li>
                 
                 </ul></nav>
         </header><!-- /#banner -->
-                
-
-            
-
         
-        
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="./configuration-magic.html">Configuration magic</a></h1> 
-                    <footer class="post-info">
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="configuration-magic.html" rel="bookmark"
+           title="Permalink to Configuration magic">Configuration magic</a></h1>
+      
+    </header>
+
+    <div class="entry-content">
+      <footer class="post-info">
         <abbr class="published" title="2012-07-24T23:23:47.868024">
                 Tue 24 July 2012
         </abbr>
@@ -66,7 +68,8 @@
 
 
 
-</footer><!-- /.post-info --><p>I write a lot of utilities and scripts, that needs to be configurable and as smart as possible.</p>
+</footer><!-- /.post-info -->
+      <p>I write a lot of utilities and scripts, that needs to be configurable and as smart as possible.</p>
 <p>Finally I found a solution which I think is very powerful and simple to implement, which allows me to have:</p>
 <ul class="simple">
 <li>a default configuration file in a python module, which contains simply variables.</li>
@@ -193,28 +196,25 @@ python myscript.py -D database.user:newuser
         <span class="k">else</span><span class="p">:</span>
             <span class="k">yield</span> <span class="s">&quot;.&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">prefix</span> <span class="o">+</span> <span class="p">(</span><span class="n">k</span><span class="p">,))</span> <span class="o">+</span> <span class="s">&quot;:&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
 </pre>
-<p>There are <a href="./configuration-magic.html#disqus_thread">comments</a>.</p>
-                </article>
-                
-                    
-<p class="paginator">
-    
-    Page 1 / 1
-    
-</p>
 
-                
-            </aside><!-- /#featured -->
-            
-        
-        
-        
-            </ol><!-- /#posts-list -->
-            
-            </section><!-- /#content -->
-        
+    </div><!-- /.entry-content -->
+    
+    <div class="comments">
+      <h2>Comments !</h2>
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        var disqus_identifier = "configuration-magic.html";
+        (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://andreacrotti.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+    </div>
     
 
+  </article>
+</section>
 
         <section id="extras" class="body">
         

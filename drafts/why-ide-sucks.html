@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>Thoughts from PyCon US</title>
+        <title>Why IDE sucks</title>
         <meta charset="utf-8" />
         <link rel="stylesheet" href=".././theme/css/main.css" type="text/css" />
         
@@ -48,8 +48,8 @@
   <article>
     <header>
       <h1 class="entry-title">
-        <a href="thoughts-from-pycon-us.html" rel="bookmark"
-           title="Permalink to Thoughts from PyCon US">Thoughts from PyCon US</a></h1>
+        <a href="why-ide-sucks.html" rel="bookmark"
+           title="Permalink to Why IDE sucks">Why IDE sucks</a></h1>
       
     </header>
 
@@ -69,65 +69,63 @@
 
 
 </footer><!-- /.post-info -->
-      <!-- roads -->
-<!-- links -->
-<!-- robots -->
-<p>After two PyCon Italy and one Europycon last year this time I decided
-that I really wanted to come to Pycon Us, and I'm very glad I did.</p>
-<div class="section" id="trip">
-<h2>Trip</h2>
-<p>Coming from Bristol has been an exhausting trip, with the 3-4 hours
-delay of the airplane in London it took me exactly 24 hours from the
-time I left my house to the time I got to the hotel in Santa Clara.</p>
-<!-- I had only some vague ideas about what the silicon valley really is, -->
-<!-- but the first and most impressive thing is definitively the sizes. -->
+      <!-- TODO: which IDE can be added? -->
+<p>This article is about productivity, as a conclusion of many years of
+tinkering and trying every possible thing.</p>
+<p>Here below a list of arguments that make every IDE suck:</p>
+<div class="section" id="designed-with-a-specific-language-in-mind">
+<h2>Designed with a specific language in mind</h2>
+<p>Every IDE is designed with a particular language in mind.  This is not
+in general a bad thing, but unless you plan to use <em>one</em> and <em>only
+one</em> programming language, you will experience that the quality of the
+plugins for other languages will not be the same.</p>
+<p>In plus it takes years before reaching a plugin with a decent quality
+for a new language, which leads to the.</p>
 </div>
-<div class="section" id="tutorials">
-<h2>Tutorials</h2>
-<p>So Thursday I did my first and only tutorial, still slightly KO from
-the jet-lag and the long trip.  It started well but it became quite
-boring in the end, and there wasn't any hands-on session.</p>
-<p>I don't see the point of a tutorial composed <em>only</em> of slides and
-demos which I can't possibly reproduce.  I understand that it's hard
-to set up and to get something useful done in a short time, but it's
-really not fulfilling to watch someone else doing a demo without even
-understanding what he's doing.</p>
-<p>One possible solution would be to prepare all the boiler-plate code
-before, and make it available (even before the tutorial) to the people
-attending.</p>
-<p>With a clear set of prepared tools and modules that abstracts the
-boring parts it would much easier to actually get something nice done
-during the tutorial.</p>
+<div class="section" id="slow-and-extremely-memory-hungry">
+<h2>Slow and extremely memory hungry</h2>
+<p>Even on a very fast machine, firing up an IDE takes ages, and
+allocates insane amount of memory.  You might say that it's not a
+problem, we have power and we have a lot of cheap memory, so why
+bother.</p>
+<p>But suppose you're working with a netbook, working with that same IDE
+is not so much fun anymore, and you end up with your good old
+text-editor to get some work done.</p>
 </div>
-<div class="section" id="conference">
-<h2>Conference</h2>
-<p>Friday was a great day, started off with an amazing robot-dance (with
-<a class="reference external" href="../static/nao_website">nao</a> robots), which was absolutely awesome. These little robots really
-look humans, and I can only imagine how hard it must be to program a
-synchronised choreograph with such natural movements.</p>
+<div class="section" id="hard-to-extend-or-customise">
+<h2>Hard to extend or customise</h2>
+<p>As developers we have an incredible advantage over other
+professionals, we are probably the only one that can create the tools
+we are using for our job.</p>
+<p>A formula1 pilot doesn't build its car, a carpenter doesn't fabricate
+its hammers and so on.  Even more extremely, we can create our own
+tools in the same language that we use to do the real job, imagine if
+it would be possible to build a hammer just with <em>another hammer</em>.</p>
+<p>This opportunity gives the tremendous power to customise every tool to
+our specific needs and taste.  The problem with IDEs in this case is
+that they are extremely hard to customise.</p>
+<!-- TODO: check the link -->
+<!-- TODO: add a simple example about customisation in emacs -->
 </div>
-<div class="section" id="sprints">
-<h2>Sprints</h2>
-<p>This was my first sprint session and I'm very glad I did it.  After
-Sunday night I thought that only a few people would have actually
-remained, I was quite wrong and on Monday apparently more than 700
-people were still in the hotel coding like crazy.</p>
-<p>I first joined the python-dev group and thanks to Martin Löwis I now
-have a very work flow to contribute, with my own clone of the CPython
-sources on bitbucket.</p>
-<p>Then I joined Barry Warsaw and the GNU Mailman team, and after one day
-I already had a couple of branches merged into trunk.</p>
+<div class="section" id="when-they-break-you-re-screwed">
+<h2>When they break you're screwed</h2>
+</div>
+<div class="section" id="complex-and-not-portable-configuration">
+<h2>Complex and not portable configuration</h2>
+<p>For my experience it's from very annoying to almost impossible to try
+to port the same configuration on different machines.  IDEs often
+store all the settings in some thousands sparse xml files, which make
+them extremely hard to locate and to understand.</p>
 </div>
 <div class="section" id="conclusion">
 <h2>Conclusion</h2>
-<!-- special thanks to the foundation -->
-</div>
-<div class="section" id="curious-things">
-<h2>Curious things</h2>
-<p>I just noticed that almost every</p>
-</div>
-<div class="section" id="interesting-projects">
-<h2>Interesting projects</h2>
+<p>If you are like me, and you always want to know what is going on your
+machine.</p>
+<p>I'm not saying that IDEs should never been used, on the contrary they
+can be very useful.  To me for example one case where I would prefer
+an IDE is if I have to implement something quickly in a complex
+technology that I don't particularly care about (Java for example).</p>
+<p>In that case trying to set up Emacs to get a good configuration</p>
 </div>
 
     </div><!-- /.entry-content -->
@@ -136,7 +134,7 @@ I already had a couple of branches merged into trunk.</p>
       <h2>Comments !</h2>
       <div id="disqus_thread"></div>
       <script type="text/javascript">
-        var disqus_identifier = "thoughts-from-pycon-us.html";
+        var disqus_identifier = "why-ide-sucks.html";
         (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
         dsq.src = 'http://andreacrotti.disqus.com/embed.js';
