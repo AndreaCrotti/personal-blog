@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>My personal blog</title><link href="http://andreacrotti.github.com/personal-blog/" rel="alternate"></link><link href="http://andreacrotti.github.com/personal-blog/feeds/all-english.atom.xml" rel="self"></link><id>http://andreacrotti.github.com/personal-blog/</id><updated>2012-09-13T23:48:41+01:00</updated><entry><title>Rule of divisor by three</title><link href="http://andreacrotti.github.com/personal-blog/rule-of-divisor-by-three.html" rel="alternate"></link><updated>2012-09-13T23:48:41+01:00</updated><author><name>Andrea Crotti</name></author><id>tag:andreacrotti.github.com/personal-blog,2012-09-13:rule-of-divisor-by-three.html</id><summary type="html">&lt;!-- TODO: find out how to use math formulas --&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>My personal blog</title><link>http://andreacrotti.github.com/personal-blog/</link><description></description><atom:link href="http://andreacrotti.github.com/personal-blog/feeds/src.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 13 Sep 2012 23:48:41 +0100</lastBuildDate><item><title>Rule of divisor by three</title><link>http://andreacrotti.github.com/personal-blog/rule-of-divisor-by-three.html</link><description>&lt;!-- TODO: find out how to use math formulas --&gt;
 &lt;p&gt;Maybe many of you already know this simple trick to check if a number
 is divisible by three.&lt;/p&gt;
 &lt;p&gt;If summing up all the digits from a number sums up to a multiple of 3
@@ -30,4 +30,4 @@ a = 3k - b&lt;/p&gt;
 = 30k - 9b
 = 3(10k - 3b)&lt;/p&gt;
 &lt;p&gt;which is trivially divisible by 3.&lt;/p&gt;
-</summary></entry></feed>
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Andrea Crotti</dc:creator><pubDate>Thu, 13 Sep 2012 23:48:41 +0100</pubDate><guid>tag:andreacrotti.github.com/personal-blog,2012-09-13:rule-of-divisor-by-three.html</guid></item></channel></rss>
