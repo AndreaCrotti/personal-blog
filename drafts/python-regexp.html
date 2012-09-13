@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>Regexp builder</title>
+        <title>Python regexp</title>
         <meta charset="utf-8" />
         <link rel="stylesheet" href=".././theme/css/main.css" type="text/css" />
         
-        <link href="http://andreacrotti.github.com/personal-blog/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="My personal blog Atom Feed" />
+        <link href="http://andreacrotti.github.com/personal-blog/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Coding blog Atom Feed" />
         
         
-        <link href="http://andreacrotti.github.com/personal-blog/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="My personal blog RSS Feed" />
+        <link href="http://andreacrotti.github.com/personal-blog/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Coding blog RSS Feed" />
         
 
         <!--[if IE]>
@@ -32,7 +32,7 @@
 </a>
 
         <header id="banner" class="body">
-                <h1><a href="../.">My personal blog </a></h1>
+                <h1><a href="../.">Coding blog </a></h1>
                 <nav><ul>
                 
                 
@@ -48,14 +48,14 @@
   <article>
     <header>
       <h1 class="entry-title">
-        <a href="regexp-builder.html" rel="bookmark"
-           title="Permalink to Regexp builder">Regexp builder</a></h1>
+        <a href="python-regexp.html" rel="bookmark"
+           title="Permalink to Python regexp">Python regexp</a></h1>
       
     </header>
 
     <div class="entry-content">
       <footer class="post-info">
-        <abbr class="published" title="2012-09-13T23:47:25.153544">
+        <abbr class="published" title="2012-09-13T23:50:35.798099">
                 Thu 13 September 2012
         </abbr>
 
@@ -69,7 +69,8 @@
 
 
 </footer><!-- /.post-info -->
-      <p>Suppose</p>
+      <p>In this article I want to show a quick story on parsing and the beauty
+of Python.</p>
 <pre class="code python literal-block">
 <span class="n">_REGEX_CONSTRUCTOR</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">'batchid'</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
@@ -81,6 +82,7 @@
     <span class="s">'pid'</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
 <span class="p">}</span>
 
+<span class="c"># by default the regex return the string, and converts to the right field otherwise</span>
 <span class="n">REGEX_CONSTRUCTOR</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span>
 <span class="n">REGEX_CONSTRUCTOR</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">_REGEX_CONSTRUCTOR</span><span class="p">)</span>
 </pre>
@@ -91,7 +93,7 @@
       <h2>Comments !</h2>
       <div id="disqus_thread"></div>
       <script type="text/javascript">
-        var disqus_identifier = "regexp-builder.html";
+        var disqus_identifier = "python-regexp.html";
         (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
         dsq.src = 'http://andreacrotti.disqus.com/embed.js';

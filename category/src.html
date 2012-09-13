@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>My personal blog - src</title>
+        <title>Coding blog - src</title>
         <meta charset="utf-8" />
         <link rel="stylesheet" href=".././theme/css/main.css" type="text/css" />
         
-        <link href="http://andreacrotti.github.com/personal-blog/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="My personal blog Atom Feed" />
+        <link href="http://andreacrotti.github.com/personal-blog/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Coding blog Atom Feed" />
         
         
-        <link href="http://andreacrotti.github.com/personal-blog/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="My personal blog RSS Feed" />
+        <link href="http://andreacrotti.github.com/personal-blog/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Coding blog RSS Feed" />
         
 
         <!--[if IE]>
@@ -32,7 +32,7 @@
 </a>
 
         <header id="banner" class="body">
-                <h1><a href="../.">My personal blog </a></h1>
+                <h1><a href="../.">Coding blog </a></h1>
                 <nav><ul>
                 
                 
@@ -51,8 +51,198 @@
         
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href=".././rule-of-divisor-by-three.html">Rule of divisor by three</a></h1> 
+                    <h1 class="entry-title"><a href=".././configuration-magic.html">Configuration magic</a></h1> 
                     <footer class="post-info">
+        <abbr class="published" title="2012-09-13T23:50:04.552325">
+                Thu 13 September 2012
+        </abbr>
+
+        
+        <address class="vcard author">
+                By <a class="url fn" href=".././author/andrea-crotti.html">Andrea Crotti</a>
+        </address>
+        
+<p>In <a href=".././category/src.html">src</a>. </p>
+
+
+
+</footer><!-- /.post-info --><p>I write a lot of utilities and scripts, that needs to be configurable and as smart as possible.</p>
+<p>Finally I found a solution which I think is very powerful and simple to implement, which allows me to have:</p>
+<ul class="simple">
+<li>a default configuration file in a python module, which contains simply variables.</li>
+</ul>
+<pre class="code python literal-block">
+<span class="n">database</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'user'</span><span class="p">:</span> <span class="s">'user'</span><span class="p">,</span>
+    <span class="s">'host'</span><span class="p">:</span> <span class="s">'dbserver'</span><span class="p">,</span>
+    <span class="s">'port'</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
+<span class="p">}</span>
+</pre>
+<ul class="simple">
+<li>a simple ini file, for example:</li>
+</ul>
+<pre class="code ini literal-block">
+<span class="k">[database]</span>
+<span class="na">user</span> <span class="o">=</span> <span class="s">user</span>
+<span class="na">host</span> <span class="o">=</span> <span class="s">dbserver</span>
+<span class="na">port</span> <span class="o">=</span> <span class="s">1000</span>
+</pre>
+<p>Which can extend the default configuration or override some values.</p>
+<ul class="simple">
+<li>a way to pass from the command line extra settings, passing for example</li>
+</ul>
+<pre class="code bash literal-block">
+python myscript.py -D database.user:newuser
+</pre>
+<p>Will override the settings but is not allowed to create new settings (both to simplify the implementation and to avoid simple typos).</p>
+<p>All this is very simple and can be implemented with some Python white magic.</p>
+<p>The final parsed configuration is just a dictionary and can is loaded only once, and accessed from every module via <em>get_conf</em>.</p>
+<pre class="code python literal-block">
+<span class="n">GLOBAL_CONF</span> <span class="o">=</span> <span class="bp">None</span>
+
+<span class="k">def</span> <span class="nf">get_conf</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Return the global configuration, loading it first if necessary
+    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">GLOBAL_CONF</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">global</span> <span class="n">GLOBAL_CONF</span>
+        <span class="n">GLOBAL_CONF</span> <span class="o">=</span> <span class="n">load_conf</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">GLOBAL_CONF</span>
+</pre>
+<p>And the load_conf function is very simple, it takes an optional ini file path and a dictionary with extra settings, and</p>
+<ul class="simple">
+<li>parses the default python configuration to dictionary</li>
+<li>creates a configuration object passing these default values</li>
+<li>updates the configuration with the extra settings</li>
+</ul>
+<pre class="code python literal-block">
+<span class="k">def</span> <span class="nf">load_conf</span><span class="p">(</span><span class="n">conf_file</span><span class="o">=</span><span class="n">DEFAULT_INI_CONF</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="n">default_conf</span> <span class="o">=</span> <span class="n">module_to_dict</span><span class="p">(</span><span class="n">DEFAULT_CONF_MODULE</span><span class="p">)</span>
+    <span class="n">conf</span> <span class="o">=</span> <span class="n">Conf</span><span class="p">(</span><span class="n">conf_file</span><span class="p">,</span> <span class="n">default_conf</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">extra</span><span class="p">:</span>
+        <span class="n">conf</span><span class="o">.</span><span class="n">update_from_vars</span><span class="p">(</span><span class="n">extra</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">conf</span>
+</pre>
+<p>The configuration object does</p>
+<ul class="simple">
+<li>set the internal dictionary to the default values.</li>
+<li>create a ConfigParser object to parse the given ini file.</li>
+<li>iterates over the ConfigParser object writing on the internal dictionary with <em>_conf_to_dict</em>. In this implementation a configuration file is allowed to create sections and options which didn't exist, this might be made easily configurable. (For example suppose we want to enable type checking it would make sense to only allow options that are also in the global Python configuration.)</li>
+</ul>
+<pre class="code python literal-block">
+<span class="k">class</span> <span class="nc">Conf</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">conf_file</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">conf_dict</span> <span class="o">=</span> <span class="n">default</span> <span class="ow">or</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">conf</span> <span class="o">=</span> <span class="n">ConfigParser</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">conf_file</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_conf_to_dict</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_conf_to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">sec</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">sections</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">sec</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">conf_dict</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">conf_dict</span><span class="p">[</span><span class="n">sec</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+            <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">items</span><span class="p">(</span><span class="n">sec</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">conf_dict</span><span class="p">[</span><span class="n">sec</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
+</pre>
+<p>These two methods are just added for convenience, so that the configuration can be accessed in the same way as a dictionary and as a namespace:</p>
+<pre class="code python literal-block">
+<span class="k">def</span> <span class="nf">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">conf_dict</span><span class="p">[</span><span class="n">item</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__getitem__</span><span class="p">(</span><span class="n">attr</span><span class="p">)</span>
+</pre>
+<p>These two methods instead are used to convert the configuration to and from a list of arguments, very useful to be able to override settings from the command line.</p>
+<pre class="code python literal-block">
+<span class="k">def</span> <span class="nf">to_args</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">dict_to_args</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">conf_dict</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">update_from_vars</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">varargs</span><span class="p">):</span>
+    <span class="n">tmp_dic</span> <span class="o">=</span> <span class="n">args_to_dict</span><span class="p">(</span><span class="n">varargs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">conf_dict</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">conf_dict</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">tmp_dic</span><span class="p">)</span>
+</pre>
+<pre class="code python literal-block">
+<span class="k">def</span> <span class="nf">args_to_dict</span><span class="p">(</span><span class="n">var_args</span><span class="p">,</span> <span class="n">current_dict</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Take a list of variable settings and construct a dictionary
+    [x1.x2:val] -&gt; {'x1': {'x2': val}}
+    &quot;&quot;&quot;</span>
+    <span class="n">tmp</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">current_dict</span><span class="p">)</span>
+    <span class="n">sub</span> <span class="o">=</span> <span class="n">tmp</span>
+    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">var_args</span><span class="p">:</span>
+        <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">KEY_VAL_SEP</span><span class="p">)</span>
+        <span class="n">full</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">'.'</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">full</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="n">sub</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+
+        <span class="k">assert</span> <span class="n">full</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="ow">in</span> <span class="n">sub</span><span class="p">,</span> <span class="s">&quot;the settings must already contain the variable&quot;</span>
+        <span class="n">sub</span><span class="p">[</span><span class="n">full</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="n">val</span>
+
+    <span class="k">return</span> <span class="n">tmp</span>
+</pre>
+<pre class="code python literal-block">
+<span class="k">def</span> <span class="nf">dict_to_args</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="p">()):</span>
+    <span class="sd">&quot;&quot;&quot;Return a list of valid arguments that can be passed, in the form
+    [k1.k2:val1, k1.k3:val3, k2.k3:val2]
+    &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">iteritems</span><span class="p">():</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">dict_to_args</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">prefix</span> <span class="o">+</span> <span class="p">(</span><span class="n">k</span><span class="p">,)):</span>
+                <span class="k">yield</span> <span class="n">x</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="s">&quot;.&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">prefix</span> <span class="o">+</span> <span class="p">(</span><span class="n">k</span><span class="p">,))</span> <span class="o">+</span> <span class="s">&quot;:&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+</pre>
+<p>So putting everything together you could have in your main module an argparse parser that list all the possible configurations, and allows you to override some of the values:</p>
+<pre class="code python literal-block">
+<span class="k">def</span> <span class="nf">parse_arguments</span><span class="p">():</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s">'Manage the tests'</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'-D'</span><span class="p">,</span> <span class="s">'--extra_config'</span><span class="p">,</span>
+        <span class="n">nargs</span><span class="o">=</span><span class="s">'+'</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s">'set extra variables'</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--list_keys'</span><span class="p">,</span>
+        <span class="n">action</span><span class="o">=</span><span class="s">'store_true'</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s">'show the whole list of variables that can be set'</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+</pre>
+<pre class="code python literal-block">
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">ns</span> <span class="o">=</span> <span class="n">parse_arguments</span><span class="p">()</span>
+    <span class="n">conf</span> <span class="o">=</span> <span class="n">load_conf</span><span class="p">(</span><span class="n">ns</span><span class="o">.</span><span class="n">config</span><span class="p">,</span> <span class="n">ns</span><span class="o">.</span><span class="n">extra_config</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">ns</span><span class="o">.</span><span class="n">list_keys</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">conf</span><span class="o">.</span><span class="n">to_args</span><span class="p">()))</span>
+</pre>
+<p>Next step to improve this configuration schema is to add type checking, and possibly make it to an external library.</p>
+<p>There are <a href=".././configuration-magic.html#disqus_thread">comments</a>.</p>
+                </article>
+                
+            </aside><!-- /#featured -->
+            
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+            
+        
+        
+        
+            
+
+        
+         
+            
+            <li><article class="hentry">    
+                <header>
+                    <h1><a href=".././rule-of-divisor-by-three.html" rel="bookmark"
+                           title="Permalink to Rule of divisor by three">Rule of divisor by three</a></h1>
+                </header>
+                
+                <div class="entry-content">
+                <footer class="post-info">
         <abbr class="published" title="2012-09-13T23:48:41.074710">
                 Thu 13 September 2012
         </abbr>
@@ -66,54 +256,30 @@
 
 
 
-</footer><!-- /.post-info --><!-- TODO: find out how to use math formulas -->
+</footer><!-- /.post-info -->
+                <!-- TODO: find out how to use math formulas -->
 <p>Maybe many of you already know this simple trick to check if a number
 is divisible by three.</p>
 <p>If summing up all the digits from a number sums up to a multiple of 3
 then the number is divisible by three.</p>
 <p>For example:</p>
 <ul class="simple">
-<li>57 -&gt; 5 + 7 = 12, 12 is divisible by 3 thus 57 is divisible by 3</li>
-<li>23 -&gt; 2 + 4 = 5, 5 is not divisible by 3 thus 23 is not divisible by 3</li>
-</ul>
-<p>There are many similar tricks to check other divisors, but to me it's
-more interesting to know <em>why</em> it works, and <em>how</em> can I actually
-prove it.</p>
-<p>Looks like it's easier than I thought.  First observe that every
-natural number can be written as:</p>
-<p>n = 10^n*x_n + 10^(n-1)x_(n-1) + .. + 10x1 + x0</p>
-<p>this representation makes it easy to compute the sum of the digits,
-which is simply the sum of all x_i for i 0 -&gt; n.</p>
-<p>So proving for n = 0 is trivial, because 3, 6 and 9 are divisible by 3.</p>
-<p>Suppose the number has 2 digits, so can be written as</p>
-<p>n = 10a + b</p>
-<p>saying that the sum of the digits is divisible by three means that
-a + b % 3 = 0</p>
-<p>which can be rewritten as:</p>
-<p>a + b = 3k
-a = 3k - b</p>
-<p>n = 10(3k - b) + b
-= 30k - 10b + b
-= 30k - 9b
-= 3(10k - 3b)</p>
-<p>which is trivially divisible by 3.</p>
-<p>There are <a href=".././rule-of-divisor-by-three.html#disqus_thread">comments</a>.</p>
-                </article>
+<li>57 -&gt; 5 + 7 = 12, 12 is divisible ...</li></ul></!-->
+                <a class="readmore" href=".././rule-of-divisor-by-three.html">read more</a>
+                <p>There are <a href=".././rule-of-divisor-by-three.html#disqus_thread">comments</a>.</p>
+                </div><!-- /.entry-content -->
+            </article></li>
+        
+        
+            </ol><!-- /#posts-list -->
+            
                 
-                    
 <p class="paginator">
     
     Page 1 / 1
     
 </p>
 
-                
-            </aside><!-- /#featured -->
-            
-        
-        
-        
-            </ol><!-- /#posts-list -->
             
             </section><!-- /#content -->
         
