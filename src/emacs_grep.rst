@@ -22,6 +22,3 @@ This function
             (format "grep -nH -e \"val %s\" %s/*.mli" to_lookup typerex-library-path)))
     
         (grep grep_cmd)))
-
-
-:status: draft
