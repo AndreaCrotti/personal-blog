@@ -2,6 +2,7 @@ Why IDE sucks
 #############
 
 .. TODO: which IDE can be added?
+.. TODO: add something from this link http://david.rothlis.net/emacs/why.html
 
 :status: draft
 

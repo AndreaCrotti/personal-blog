@@ -3,8 +3,6 @@ Rule of divisor by three
 
 .. TODO: find out how to use math formulas
 
-:status: draft
-
 Maybe many of you already know this simple trick to check if a number
 is divisible by three.
 
