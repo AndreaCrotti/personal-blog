@@ -9,12 +9,25 @@ import unittest
 
 class GiverGraph:
     def __init__(self, elems):
-        self.santa = dict((x, None) for x in elems)
+        self.elems = elems
+        self.santa = {}
 
     def __setitem__(self, item, value):
         self.santa[item] = value
 
     def valid(self):
+        everyone_gives = sorted(self.elems) == sorted(self.santa)
+        everyone_receives = sorted(self.elems) == sorted(self.santa.values())
+        def check_equals():
+            for giv, recv in self.santa.items():
+                if giv == recv:
+                    return False
+
+            return True
+
+        def check_circle():
+            pass
+
         # check that
         # - there are no circles
         # - the entries are compatible
