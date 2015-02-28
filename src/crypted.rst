@@ -1,5 +1,0 @@
-CRYPTED
-#######
-
-:status: draft
-
